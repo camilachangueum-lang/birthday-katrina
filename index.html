@@ -1,0 +1,1188 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV Años – Katrina Aguilar Vaca</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+    :root {
+        --red:         #CB3D5C;
+        --wine-deep:   #3D0B12;
+        --wine:        #6E0F1E;
+        --wine-soft:   #8C1B2C;
+        --gold:        #C9A227;
+        --gold-light:  #E7C667;
+        --gold-pale:   #F4E3B2;
+        --cream:       #FBF3E6;
+        --cream-deep:  #F4E6CC;
+        --ink:         #3A2218;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #FFFFFF;
+        font-family: 'Montserrat', sans-serif;
+        color: var(--ink);
+    }
+
+    body {
+        background: #FFFFFF;
+    }
+
+    .page {
+        max-width: 520px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin: 0; }
+
+    /* ============ COVER ============ */
+      .butterfly-top {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: auto;
+            z-index: 10;
+        }
+
+    .cover {
+        min-height: 100vh;
+        background: linear-gradient(150deg, var(--wine-deep) 0%, var(--wine) 55%, var(--wine-soft) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--gold-light);
+        position: relative;
+        overflow: hidden;
+        padding: 3rem 1.5rem;
+    }
+    .cover .frame-line {
+        position: absolute;
+        inset: 18px;
+        border: 1px solid rgba(201,162,39,0.45);
+        border-radius: 6px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .cover .eyebrow {
+        font-size: 0.95rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--gold-pale);
+        z-index: 2;
+        margin-bottom: 0.8rem;
+    }
+    .cover h1 {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--gold-pale);
+        z-index: 2;
+        margin-bottom: 0.5rem;
+    }
+    .cover .name {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3.6rem;
+        color: var(--gold-light);
+        margin: 0.6rem 0;
+        z-index: 2;
+        text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+    }
+    .cover .age {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        letter-spacing: 0.15em;
+        color: var(--gold-pale);
+        margin-top: 0.4rem;
+        z-index: 2;
+    }
+    .cover .date {
+        font-size: 1.15rem;
+        color: var(--cream);
+        margin-top: 1.4rem;
+        z-index: 2;
+        letter-spacing: 0.04em;
+    }
+    .tap-hint {
+        position: absolute;
+        bottom: 28px;
+        color: var(--gold-light);
+        font-size: 0.95rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        animation: bounce 2s infinite;
+        z-index: 2;
+        cursor: pointer;
+    }
+    @keyframes bounce {
+        0%,20%,50%,80%,100% { transform: translateY(0); }
+        40% { transform: translateY(-8px); }
+        60% { transform: translateY(-4px); }
+    }
+
+    
+
+    /* Imagenes decorativas dentro de la portada (laterales) */
+    .cover .side-deco { position: absolute; opacity: 0.5; z-index: 1; pointer-events: none; }
+    .cover .side-deco.left  { top: 10%; left: -22px; width: 140px; }
+    .cover .side-deco.right { bottom: 14%; right: -22px; width: 140px; transform: scaleX(-1); }
+
+    /* ============ BLOQUE GENERAL DE SECCIÓN ============ */
+    
+    .section {
+        position: relative;
+        padding: 3.5rem 1.6rem;
+        overflow: hidden;
+        background: #FFFFFF;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .section.alt { background: #FFFFFF; }
+
+    /* ============ MARCOS ORNAMENTALES (con container/cuadrado) ============ */
+    .ornate-frame {
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .ornate-frame.corner-tl {
+        top: 0;
+        left: 0;
+        width: 180px;
+        height: auto;
+    }
+    .ornate-frame.corner-tr {
+        top: 0;
+        right: 0;
+        width: 180px;
+        height: auto;
+        transform: scaleX(-1);
+    }
+    .ornate-frame.corner-bl {
+        bottom: 0;
+        left: 0;
+        width: 180px;
+        height: auto;
+        transform: scaleY(-1);
+    }
+    .ornate-frame.corner-br {
+        bottom: 0;
+        right: 0;
+        width: 180px;
+        height: auto;
+        transform: scaleX(-1) scaleY(-1);
+    }
+
+    /* ============ MARIPOSAS EN ESQUINAS (encima, opacidad alta, solo después de portada) ============ */
+    .corner-deco {
+        position: absolute;
+        z-index: 3;
+        pointer-events: none;
+        opacity: 0.80;
+        width: 80px;
+    }
+    .corner-deco.top-left     { top: 40px; left: 8px; }
+    .corner-deco.top-right    { top: 40px; right: 8px; transform: scaleX(-1); }
+    .corner-deco.bottom-left  { bottom: 8px; left: 8px; transform: scaleY(-1); }
+    .corner-deco.bottom-right { bottom: 8px; right: 8px; transform: scaleX(-1) scaleY(-1); }
+
+    /* Marco dorado sutil interior (línea fina) */
+     /* ── MUSIC PLAYER ── */
+        .music-player {
+            transform: translateY(-10px);
+            background: #ac1b2e;
+            border-radius: 50px;
+            padding: 1.2rem 2rem;
+            max-width: 260px;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            box-shadow: 0 5px 20px rgba(4, 54, 43, 0.35);
+            position: relative;
+        }
+        .music-player button {
+            background: none; border: none; color: white; cursor: pointer;
+            font-size: 1.4rem; transition: transform 0.2s; opacity: 0.85;
+        }
+        .music-player button:hover { transform: scale(1.2); opacity: 1; }
+        .play-btn {
+    width: 64px; 
+    height: 64px; 
+    border-radius: 50% !important;
+    background: rgb(255, 255, 255) !important;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 1.8rem !important; 
+    color: #662c05 !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Crear las dos rayitas de pause con CSS */
+.play-btn.pause::before,
+.play-btn.pause::after {
+    content: '';
+    width: 6px;
+    height: 20px;
+    background: #662c05;
+    position: absolute;
+    border-radius: 2px;
+}
+
+.play-btn.pause::before {
+    left: 22px;
+}
+
+.play-btn.pause::after {
+    right: 22px;
+}
+
+/* Símbolo de play */
+.play-btn.play {
+    font-size: 0 !important; /* Ocultar el texto */
+}
+
+.play-btn.play::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 18px solid #662c05;
+    margin-left: 5px;
+}
+        
+        .progress-bar {
+            position: absolute; bottom: 10px; left: 2rem; right: 2rem;
+            height: 3px; background: rgba(255,255,255,0.3); border-radius: 3px; overflow: hidden;
+        }
+        .progress { height: 100%; background: white; width: 0%; transition: width 0.3s; }
+        .music-text {
+            text-align: center;
+            transform: translateY(5px);
+            font-family: 'Dancing Script', cursive; font-size: 2.5rem;
+            color: #a81919; margin: 1.5rem 0 0.5rem;
+        }
+
+    .section .frame-line {
+        position: absolute;
+        inset: 14px;
+        border: 1px solid rgba(201,162,39,0.25);
+        border-radius: 6px;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .eyebrow-label {
+        text-align: center;
+        font-size: 0.85rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
+        position: relative;
+        z-index: 1;
+    }
+    .section h2.title {
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.8rem;
+        color: var(--red);
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 2px 8px rgba(201,162,39,0.3), 0 0 20px rgba(201,162,39,0.15);
+    }
+    .section p.body-text {
+        text-align: center;
+        font-size: 1.15rem;
+        line-height: 1.85;
+        color: #5A3A2E;
+        max-width: 420px;
+        margin: 0 auto 1.5rem;
+        position: relative;
+        z-index: 1;
+        font-weight: 500;
+    }
+
+    .gold-divider {
+        width: 70px;
+        height: 2px;
+        background: var(--gold);
+        margin: 0 auto 1.8rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ============ HERO / FOTO ============ */
+    .hero-photo-container {
+        display: flex;
+        justify-content: center;
+        margin: 1.5rem auto 1rem;
+        position: relative;
+        z-index: 1;
+    }
+    .hero-photo-slot {
+        width: 320px;
+        height: 400px;
+        border-radius: 18px;
+        overflow: hidden;
+        background: var(--cream-deep);
+        border: 3px solid var(--gold);
+        box-shadow: 0 16px 32px rgba(110,15,30,0.18);
+    }
+    .hero-photo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ============ IMÁGENES EN LUGAR DE TEXTO (HERO) - SIN CONTAINER, SOLO IMG ============ */
+    .hero-text-img {
+        display: block;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    .hero-text-img img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Tamaños y márgenes ajustables por el usuario */
+    .hero-text-img.welcome {
+        margin-top: 1.8rem;
+        margin-bottom: 0.3rem;
+    }
+    .hero-text-img.welcome img {
+        width: 200px;
+    }
+
+    .hero-text-img.quince {
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+    .hero-text-img.quince img {
+        width: 340px;
+    }
+
+    .hero-text-img.name {
+        margin-top: 0.2rem;
+        margin-bottom: 0.3rem;
+    }
+    .hero-text-img.name img {
+        width: 150px;
+    }
+
+    /* ============ CORONA (más grande y cerca del nombre) ============ */
+    .hero-top-img {
+        display: block;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    .hero-top-img img {
+        display: inline-block;
+        width: 200px;
+        height: auto;
+    }
+
+    /* ============ DEDICATORIA ============ */
+    .dedicatoria-section p.body-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 2;
+    }
+    .dedicatoria-section .quote-icon {
+        font-size: 3rem;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 8px rgba(201,162,39,0.3);
+    }
+
+    /* ============ CALENDARIO ============ */
+    .calendar-img-container {
+        max-width: 420px;
+        margin: 0.5rem auto 0;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 2px solid var(--gold);
+        box-shadow: 0 10px 25px rgba(110,15,30,0.12);
+        position: relative;
+        z-index: 1;
+    }
+    .calendar-img { width: 100%; height: auto; display: block; }
+
+    /* ============ CONTADOR ============ */
+    .countdown-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.7rem;
+        flex-wrap: nowrap;
+        position: relative;
+        z-index: 1;
+    }
+    .countdown-item {
+        text-align: center;
+        background: white;
+        border: 1px solid var(--gold-pale);
+        border-radius: 14px;
+        padding: 0.8rem 0.6rem;
+        min-width: 68px;
+        box-shadow: 0 6px 16px rgba(110,15,30,0.08);
+    }
+    .countdown-value {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 2.1rem;
+        color: var(--wine);
+        line-height: 1;
+    }
+    .countdown-label {
+        font-size: 0.65rem;
+        color: var(--gold);
+        margin-top: 0.35rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .countdown-separator {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        color: var(--gold);
+        align-self: center;
+        text-shadow: 0 2px 6px rgba(201,162,39,0.3);
+    }
+
+    /* ============ TARJETAS FECHA / HORA ============ */
+    .info-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.1rem;
+        margin-top: 2rem;
+        position: relative;
+        z-index: 1;
+    }
+    .info-card {
+        background: white;
+        border-radius: 18px;
+        padding: 1.1rem 2.6rem;
+        min-width: 220px;
+        text-align: center;
+        border: 1px solid var(--gold-pale);
+        box-shadow: 0 8px 22px rgba(110,15,30,0.10);
+    }
+    .info-card .info-label {
+        font-size: 0.7rem;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.35rem;
+    }
+    .info-card .info-value {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        font-size: 1.4rem;
+        color: var(--wine);
+    }
+
+    /* ===== ESTILO ÁLBUM DE FOTOS ===== */
+.album-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* Espacio entre fotos */
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.photo-card {
+    background: #fff9da; /* Color rosa suave para el marco */
+    padding: 15px 15px 45px 15px; /* Padding extra abajo para simular polaroid */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+/* Inclinaciones para efecto natural */
+.card-top {
+    transform: rotate(-2deg);
+}
+
+.card-bottom {
+    transform: rotate(2deg);
+}
+
+/* Etiqueta decorativa (la blanca que sale al lado) */
+.tag-decoration {
+    position: absolute;
+    top: 30px;
+    right: -25px;
+    width: 50px;
+    height: 60px;
+    background: #fff;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    transform: rotate(10deg);
+    z-index: 2;
+    border-radius: 2px;
+}
+.tag-decoration::before {
+    content: ''; /* Hilo de la etiqueta */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 2px;
+    height: 15px;
+    background: #888;
+}
+
+    /* ============ UBICACIÓN ============ */
+    .map-frame {
+        width: 100%;
+        max-width: 460px;
+        margin: 0.5rem auto 1.5rem;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 2px solid var(--gold);
+        box-shadow: 0 10px 25px rgba(110,15,30,0.12);
+        position: relative;
+        z-index: 1;
+    }
+    .map-frame iframe { width: 100%; height: 320px; display: block; border: 0; }
+
+    .location-button {
+        display: inline-block;
+        background: var(--red);
+        color: var(--gold-pale);
+        padding: 0.9rem 2.2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        box-shadow: 0 8px 18px rgba(110,15,30,0.25);
+        transition: transform 0.25s, background 0.25s;
+        position: relative;
+        z-index: 1;
+    }
+    .location-button:hover { transform: translateY(-3px); background: var(--gold); color: var(--wine-deep); }
+
+    /* ===== SECCIÓN CINE SIMPLE ===== */
+.film-section {
+    width: 100%;
+    padding: 2rem 0; /* Espacio arriba y abajo */
+    text-align: center;
+    background: transparent; /* ¡Importante! Quita el fondo */
+}
+
+.film-wrapper {
+    max-width: 90%; /* Ancho máximo para que no toque los bordes del celular */
+    margin: 0 auto; /* Centrado automático */
+    overflow: hidden;
+}
+
+.film-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Quitamos cualquier borde o sombra que tuviera antes */
+    border: none;
+    box-shadow: none; 
+    border-radius: 0; /* Sin bordes redondeados en la imagen */
+}
+
+    /* ============ CONFIRMACIÓN WHATSAPP ============ */
+    .whatsapp-section {
+        background: linear-gradient(150deg, var(--white) 0%, var(--cream) 60%, var(--cream-deep) 100%);
+        color: var(--cream);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .whatsapp-section h2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3rem;
+        color: var(--wine-soft);
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 2px 8px rgba(201,162,39,0.3), 0 0 20px rgba(201,162,39,0.15);
+    }
+    .whatsapp-section p {
+        font-size: 1.15rem;
+        color: var(--wine-deep);
+        position: relative;
+        z-index: 1;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+    .whatsapp-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: #25D366;
+        color: #FFFFFF;
+        padding: 1rem 2.6rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.03em;
+        box-shadow: 0 10px 22px rgba(0,0,0,0.3);
+        transition: transform 0.25s, background 0.25s;
+        position: relative;
+        z-index: 1;
+    }
+    .whatsapp-button:hover { transform: translateY(-3px); background: #1ebe5a; }
+    .whatsapp-button svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+
+    /* ============ LLUVIA DE SOBRES ============ */
+    .envelope-img-wrap {
+        text-align: center;
+        margin-top: 1.6rem;
+        position: relative;
+        z-index: 1;
+    }
+    .envelope-img-wrap img {
+        width: 200px;
+        height: auto;
+        display: inline-block;
+    }
+
+    /* ============ TE ESPERAMOS ============ */
+    .te-esperamos-section {
+        background: linear-gradient(150deg, var(--wine-deep) 0%, var(--wine) 60%, var(--wine-soft) 100%);
+        color: var(--cream);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .te-esperamos-section h2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3.2rem;
+        color: var(--gold-light);
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 2px 8px rgba(201,162,39,0.3), 0 0 20px rgba(201,162,39,0.15);
+    }
+    .te-esperamos-section p {
+        font-size: 1.15rem;
+        color: var(--gold-pale);
+        position: relative;
+        z-index: 1;
+        font-weight: 500;
+    }
+
+    footer.signature-footer {
+        text-align: center;
+        padding: 2.2rem 1.5rem;
+        background: var(--wine-deep);
+        color: var(--gold-pale);
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8rem;
+    }
+
+  
+@media (max-width: 420px) {
+     .butterfly-top {
+        top: 200px;
+        width: 140px;
+    }
+    
+    .cover .eyebrow {
+        margin-top: 160px;  /* Menos espacio en móvil */
+        font-size: 0.85rem;
+    }
+    
+    .cover h1 {
+        font-size: 1.8rem;
+    }
+    
+    .cover .name {
+        font-size: 2.8rem;
+    }
+    /* Corona más pequeña */
+    .hero-text-img.welcome img {
+        width: 120px;  /* Reduce de 200px */
+    }
+    
+    /* Nombre más pequeño */
+    .hero-text-img.quince img {
+        width: 280px;  /* Reduce de 340px */
+    }
+    
+    /* "Mis XV Años" más pequeño */
+    .hero-top-img img {
+        width: 150px;  /* Reduce de 200px */
+    }
+    
+    /* Mariposa abajo más pequeña */
+    .hero-text-img.name img {
+        width: 100px;  /* Reduce de 150px */
+    }
+    
+    /* Ajusta márgenes para que no quede tan espaciado */
+    .hero-text-img.welcome {
+        margin-top: 1rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .hero-text-img.quince {
+        margin-top: 0.3rem;
+        margin-bottom: 0.1rem;
+    }
+    
+    .hero-top-img {
+        margin: 0.2rem auto;
+    }
+    
+    .hero-text-img.name {
+        margin-top: 0.1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+        .hero-top-img img { width: 220px; }
+    
+</style>
+</head>
+<body>
+
+<!-- ============ AUDIO OCULTO (autoplay loop) ============ -->
+<!-- REEMPLAZA "TU-MUSICA.mp3" CON TU LINK MP3 -->
+<audio id="bgAudio" loop>
+    <source src="Michael Jackson - You Are Not Alone (Official Video).mp3" type="audio/mpeg">
+</audio>
+
+<div class="page">
+
+    <!-- ============ PORTADA ============ -->
+    <section class="cover">
+        <div class="frame-line"></div>
+         <img src="mariposa medio.png" alt="Mariposa" class="butterfly-top">
+
+
+        <div class="eyebrow">Te invito a celebrar</div>
+        <h1>Mis XV años</h1>
+        <div class="name">Katrina Aguilar Vaca</div>
+
+        <div class="tap-hint">Desliza para ver más</div>
+    </section>
+
+    <main>
+
+        <!-- ============ HERO / FOTO ============ -->
+         
+        <section class="section hero con-fondo-rosas">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1, con container) -->
+            <img class="ornate-frame corner-tl" src="Image.png" alt="">
+            <img class="ornate-frame corner-tr" src="Image.png" alt="">
+            <img class="ornate-frame corner-bl" src="Image.png" alt="">
+            <img class="ornate-frame corner-br" src="Image.png" alt="">
+            
+
+            <!-- Mariposas (z-index: 3, encima de todo, opacidad alta, solo después de portada) -->
+         
+           <!-- Music Player -->
+        <div class="music-text">Dale play a la canción</div>
+        <div class="music-player">
+            <button class="prev-btn" aria-label="Anterior">⏮</button>
+            <button class="play-btn" id="playPauseBtn" aria-label="Play/Pause"></button>
+            <button class="next-btn" aria-label="Siguiente">⏭</button>
+            <div class="progress-bar"><div class="progress" id="progressBar"></div></div>
+        </div>
+  
+
+            <div class="hero-photo-container">
+                <div class="hero-photo-slot">
+                    <img src="katrina.png" alt="Katrina Aguilar Vaca">
+                </div>
+            </div>
+
+            <!-- Imagen que reemplaza "Te invito a celebrar mis" - SIN CONTAINER, solo img centrada -->
+            <div class="hero-text-img welcome">
+                <img src="corona.png" alt="">
+            </div>
+
+            <!-- Imagen que reemplaza "Quince Años" - SIN CONTAINER, solo img centrada -->
+            <div class="hero-text-img quince">
+                <img src="katrina nombre letra.png" alt="">
+            </div>
+
+            <!-- CORONA - más grande y cerca del nombre - SIN CONTAINER -->
+            <div class="hero-top-img">
+                <img src="Mis XV Años.png" alt="">
+            </div>
+
+            <!-- Imagen que reemplaza "Katrina Aguilar Vaca" - SIN CONTAINER, solo img centrada -->
+            <div class="hero-text-img name">
+                <img src="mariposa plana.png" alt="">
+            </div>
+        </section>
+
+        <!-- ============ DEDICATORIA ============ -->
+        <section class="section dedicatoria-section">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1) -->
+            <img class="ornate-frame corner-tl" src="Image.png" alt="">
+            <img class="ornate-frame corner-tr" src="Image.png" alt="">
+            <img class="ornate-frame corner-bl" src="Image.png" alt="">
+            <img class="ornate-frame corner-br" src="Image.png" alt="">
+
+            <!-- Mariposas (z-index: 3, encima, opacidad alta) -->
+            <img class="corner-deco top-left" src="mariposas.gif" alt="">
+            <img class="corner-deco top-right" src="mariposas.gif" alt="">
+       
+
+            <div class="eyebrow-label">Con amor</div>
+            <h2 class="title">Una dedicatoria</h2>
+            <div class="gold-divider"></div>
+
+          
+            <p class="body-text">
+                Con inmensa alegría, gratitud y el corazón lleno de amor, celebramos tus 15 años, un momento tan especial en el que te conviertes en una hermosa jovencita. Hoy damos gracias a Dios por cada sonrisa, cada logro y cada paso que has dado hasta llegar aquí. Te invitamos con todo cariño a compartir esta noche mágica, llena de sueños, música y recuerdos que guardaremos para siempre en nuestro corazón.
+            </p>
+  
+        </section>
+
+        <!-- ============ CALENDARIO ============ -->
+        <section class="section alt">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1) -->
+            <img class="ornate-frame corner-tl" src="Image.png" alt="">
+            <img class="ornate-frame corner-tr" src="Image.png" alt="">
+            <img class="ornate-frame corner-bl" src="Image.png" alt="">
+            <img class="ornate-frame corner-br" src="Image.png" alt="">
+
+            <!-- Mariposas (z-index: 3, encima, opacidad alta) -->
+            <img class="corner-deco top-left" src="mariposa plana.png" alt="">
+            <img class="corner-deco top-right" src="mariposa plana.png" alt="">
+
+            <div class="eyebrow-label">Agenda la fecha</div>
+            <h2 class="title">Marca tu calendario</h2>
+            <div class="gold-divider"></div>
+
+            <div class="calendar-img-container">
+                <img src="Calendario.png" alt="" class="calendar-img">
+            </div>
+        </section>
+
+        <!-- ============ CONTADOR ============ -->
+        <section class="section countdown-section">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1) -->
+            <img class="ornate-frame corner-tl" src="Image.png" alt="">
+            <img class="ornate-frame corner-tr" src="Image.png" alt="">
+            <img class="ornate-frame corner-bl" src="Image.png" alt="">
+            <img class="ornate-frame corner-br" src="Image.png" alt="">
+
+            <!-- Mariposas (z-index: 3, encima, opacidad alta) -->
+            <img class="corner-deco top-left" src="mariposas rojas para varios.png" alt="">
+            <img class="corner-deco top-right" src="mariposas rojas para varios.png" alt="">
+       
+
+            <h2 class="title">Días faltantes</h2>
+            <div class="gold-divider"></div>
+
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Días</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hrs</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Min</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seg</div>
+                </div>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-label">Fecha</div>
+                    <div class="info-value">11 de Julio</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Hora</div>
+                    <div class="info-value">8:00 pm</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Fotos Estilo Álbum (Sin estrellas en código) -->
+<section class="album-section" style="padding: 4rem 1rem; background: #ffffff; text-align: center;">
+    
+    
+
+    <div class="album-container">
+        
+        <!-- FOTO SUPERIOR -->
+        <div class="photo-card card-top">
+            <!-- Tu imagen con marco rosa y estrellas integradas va aquí -->
+            <img src="prueba seccion fotos aparte.png" alt="Foto con ositos" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+            
+            <!-- Etiqueta decorativa (opcional, si quieres que salga la etiquetita blanca al lado) -->
+            <div class="tag-decoration"></div>
+        </div>
+
+        <!-- FOTO INFERIOR -->
+        <div class="photo-card card-bottom">
+            <!-- Tu segunda imagen -->
+            <img src="prueba seccion fotos aparte.png" alt="Foto con ositos" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+        </div>
+
+    </div>
+</section>
+
+
+        <!-- ============ UBICACIÓN ============ -->
+        <section class="section alt">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1) -->
+            <img class="ornate-frame corner-tl" src="Image.png" alt="">
+            <img class="ornate-frame corner-tr" src="Image.png" alt="">
+            <img class="ornate-frame corner-bl" src="Image.png" alt="">
+            <img class="ornate-frame corner-br" src="Image.png" alt="">
+
+            <!-- Mariposas (z-index: 3, encima, opacidad alta) -->
+            <img class="corner-deco top-left" src="mariposas rojas para varios.png" alt="">
+            <img class="corner-deco top-right" src="mariposas rojas para varios.png" alt="">
+   
+
+            <div class="eyebrow-label">Te esperamos en</div>
+            <h2 class="title">Ubicación</h2>
+            <div class="gold-divider"></div>
+
+            <div class="map-frame">
+                <iframe
+                    loading="lazy"
+                    allowfullscreen
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.8432103304617!2d-63.08672819999999!3d-17.799064399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1ef6403ff5d77%3A0xff56937ff95bd40a!2sClub%20house%20Condominio%20Ciudad%20del%20Este!5e0!3m2!1ses-419!2sbo!4v1782062856538!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <p class="body-text">
+                Condominio Ciudad del Este<br>Club House
+            </p>
+
+            <div style="text-align:center; position:relative; z-index:1;">
+                <a href="https://maps.app.goo.gl/HH94zNzAMZpXEeAR7" target="_blank" class="location-button">Ver en Google Maps</a>
+            </div>
+        </section>
+
+        
+<!-- Sección: Galería Cine (Sin marco cuadrado) -->
+<section class="film-section">
+    <div class="film-wrapper">
+        <!-- Aquí va tu imagen del film strip -->
+        <img src="film transparente.png" alt="Mis recuerdos" class="film-img">
+    </div>
+</section>
+
+        <!-- ============ LLUVIA DE SOBRES ============ -->
+        <section class="section">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1) -->
+            <img class="ornate-frame corner-tl" src="Image.png" alt="">
+            <img class="ornate-frame corner-tr" src="marco_top_left.png" alt="">
+            <img class="ornate-frame corner-bl" src="marco_top_left.png" alt="">
+            <img class="ornate-frame corner-br" src="Image.png" alt="">
+
+            <!-- Mariposas (z-index: 3, encima, opacidad alta) -->
+           
+         
+
+            <h2 class="title">Lluvia de Sobres</h2>
+            <div class="gold-divider"></div>
+
+            <p class="body-text">
+                Para mi fiesta de XV años, lo que más ilusión me hace es compartir este día contigo. Si quieres hacerme un regalo, un sobrecito con buenos deseos será de gran ayuda.
+            </p>
+
+            <div class="envelope-img-wrap">
+                <img src="sobre.png" alt="">
+            </div>
+        </section>
+
+        <!-- ============ CONFIRMACIÓN WHATSAPP ============ -->
+        <section class="section whatsapp-section">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1) -->
+            <img class="ornate-frame corner-tl" src="Image.png" alt="">
+            <img class="ornate-frame corner-tr" src="Image.png" alt="">
+            <img class="ornate-frame corner-bl" src="Image.png" alt="">
+            <img class="ornate-frame corner-br" src="Image.png" alt="">
+
+  
+
+            <h2>Confirma tu asistencia</h2>
+            <p>
+                Por favor, confirma tu asistencia enviándome un mensaje por WhatsApp.<br>
+                ¡Me encantaría contar contigo!
+            </p>
+
+            <a href="https://wa.link/3ofot8" target="_blank" class="whatsapp-button">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Confirmar por WhatsApp
+            </a>
+        </section>
+
+        <!-- ============ TE ESPERAMOS ============ -->
+        <section class="section te-esperamos-section">
+            <div class="frame-line"></div>
+
+            <!-- Marcos ornamentales (z-index: 1) -->
+            <img class="ornate-frame corner-tl" src="marco_top_left.png" alt="">
+            <img class="ornate-frame corner-tr" src="Image.png" alt="">
+            <img class="ornate-frame corner-bl" src="Image.png" alt="">
+            <img class="ornate-frame corner-br" src="marco_top_left.png" alt="">
+
+
+  
+
+            <h2>¡Te esperamos!</h2>
+            <p>
+                Tu presencia hará de este día algo inolvidable.     
+            </p>
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+// ── Contador ──
+function updateCountdown() {
+    const eventDate = new Date('July 11, 2026 20:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    const days    = Math.max(0, Math.floor(distance / 86400000));
+    const hours   = Math.max(0, Math.floor((distance % 86400000) / 3600000));
+    const minutes = Math.max(0, Math.floor((distance % 3600000) / 60000));
+    const seconds = Math.max(0, Math.floor((distance % 60000) / 1000));
+    document.getElementById('days').textContent    = String(days).padStart(2,'0');
+    document.getElementById('hours').textContent   = String(hours).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ── Desliza al tocar la portada ──
+document.querySelector('.tap-hint').addEventListener('click', () => {
+    document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ── Fade in/out al hacer scroll ──
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.section').forEach(section => {
+    sectionObserver.observe(section);
+});
+
+// ── Music ──
+const audio = document.getElementById('bgAudio');
+const playBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+
+const playSvg = '<svg class="icon" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="6,4 20,12 6,20" fill="currentColor"/></svg>';
+const pauseSvg = '<svg class="icon" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/></svg>';
+
+// Initialize button with play icon
+playBtn.innerHTML = playSvg;
+
+function tryAutoplay() {
+    audio.volume = 0.7;
+    audio.play().then(() => {
+        playBtn.innerHTML = pauseSvg;
+    }).catch(() => {
+        playBtn.innerHTML = playSvg;
+    });
+}
+document.addEventListener('click', function handler() {
+    tryAutoplay();
+    document.removeEventListener('click', handler);
+}, { once: true });
+window.addEventListener('load', () => setTimeout(tryAutoplay, 800));
+
+playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play().then(() => {
+            playBtn.innerHTML = pauseSvg;
+        }).catch((err) => {
+            console.log('No se pudo reproducir audio:', err);
+            playBtn.innerHTML = playSvg;
+        });
+    } else {
+        audio.pause();
+        playBtn.innerHTML = playSvg;
+    }
+});
+
+audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+        progressBar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    }
+});
+
+</script>
+
+</body>
+</html>
