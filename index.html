@@ -131,12 +131,15 @@
         60% { transform: translateY(-4px); }
     }
 
+    
+
     /* Imagenes decorativas dentro de la portada (laterales) */
     .cover .side-deco { position: absolute; opacity: 0.5; z-index: 1; pointer-events: none; }
     .cover .side-deco.left  { top: 10%; left: -22px; width: 140px; }
     .cover .side-deco.right { bottom: 14%; right: -22px; width: 140px; transform: scaleX(-1); }
 
     /* ============ BLOQUE GENERAL DE SECCIÓN ============ */
+    
     .section {
         position: relative;
         padding: 3.5rem 1.6rem;
@@ -200,6 +203,45 @@
     .corner-deco.bottom-right { bottom: 8px; right: 8px; transform: scaleX(-1) scaleY(-1); }
 
     /* Marco dorado sutil interior (línea fina) */
+     /* ── MUSIC PLAYER ── */
+        .music-player {
+            transform: translateY(-10px);
+            background: #ac1b2e;
+            border-radius: 50px;
+            padding: 1.2rem 2rem;
+            max-width: 260px;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            box-shadow: 0 5px 20px rgba(124,191,176,0.35);
+            position: relative;
+        }
+        .music-player button {
+            background: none; border: none; color: white; cursor: pointer;
+            font-size: 1.4rem; transition: transform 0.2s; opacity: 0.85;
+        }
+        .music-player button:hover { transform: scale(1.2); opacity: 1; }
+        .play-btn {
+            width: 64px; height: 64px; border-radius: 50% !important;
+            background: white !important;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem !important; color: #662c05 !important;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+        .progress-bar {
+            position: absolute; bottom: 10px; left: 2rem; right: 2rem;
+            height: 3px; background: rgba(255,255,255,0.3); border-radius: 3px; overflow: hidden;
+        }
+        .progress { height: 100%; background: white; width: 0%; transition: width 0.3s; }
+        .music-text {
+            text-align: center;
+            transform: translateY(5px);
+            font-family: 'Dancing Script', cursive; font-size: 2.5rem;
+            color: #a81919; margin: 1.5rem 0 0.5rem;
+        }
+
     .section .frame-line {
         position: absolute;
         inset: 14px;
@@ -421,6 +463,58 @@
         color: var(--wine);
     }
 
+    /* ===== ESTILO ÁLBUM DE FOTOS ===== */
+.album-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* Espacio entre fotos */
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.photo-card {
+    background: #fff9da; /* Color rosa suave para el marco */
+    padding: 15px 15px 45px 15px; /* Padding extra abajo para simular polaroid */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+/* Inclinaciones para efecto natural */
+.card-top {
+    transform: rotate(-2deg);
+}
+
+.card-bottom {
+    transform: rotate(2deg);
+}
+
+/* Etiqueta decorativa (la blanca que sale al lado) */
+.tag-decoration {
+    position: absolute;
+    top: 30px;
+    right: -25px;
+    width: 50px;
+    height: 60px;
+    background: #fff;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    transform: rotate(10deg);
+    z-index: 2;
+    border-radius: 2px;
+}
+.tag-decoration::before {
+    content: ''; /* Hilo de la etiqueta */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 2px;
+    height: 15px;
+    background: #888;
+}
+
     /* ============ UBICACIÓN ============ */
     .map-frame {
         width: 100%;
@@ -451,6 +545,30 @@
         z-index: 1;
     }
     .location-button:hover { transform: translateY(-3px); background: var(--gold); color: var(--wine-deep); }
+
+    /* ===== SECCIÓN CINE SIMPLE ===== */
+.film-section {
+    width: 100%;
+    padding: 2rem 0; /* Espacio arriba y abajo */
+    text-align: center;
+    background: transparent; /* ¡Importante! Quita el fondo */
+}
+
+.film-wrapper {
+    max-width: 90%; /* Ancho máximo para que no toque los bordes del celular */
+    margin: 0 auto; /* Centrado automático */
+    overflow: hidden;
+}
+
+.film-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Quitamos cualquier borde o sombra que tuviera antes */
+    border: none;
+    box-shadow: none; 
+    border-radius: 0; /* Sin bordes redondeados en la imagen */
+}
 
     /* ============ CONFIRMACIÓN WHATSAPP ============ */
     .whatsapp-section {
@@ -615,7 +733,7 @@
 
 <!-- ============ AUDIO OCULTO (autoplay loop) ============ -->
 <!-- REEMPLAZA "TU-MUSICA.mp3" CON TU LINK MP3 -->
-<audio id="bg-music" loop>
+<audio id="bgAudio" loop>
     <source src="Michael Jackson - You Are Not Alone (Official Video).mp3" type="audio/mpeg">
 </audio>
 
@@ -637,6 +755,7 @@
     <main>
 
         <!-- ============ HERO / FOTO ============ -->
+         
         <section class="section hero con-fondo-rosas">
             <div class="frame-line"></div>
 
@@ -645,10 +764,19 @@
             <img class="ornate-frame corner-tr" src="Image.png" alt="">
             <img class="ornate-frame corner-bl" src="Image.png" alt="">
             <img class="ornate-frame corner-br" src="Image.png" alt="">
+            
 
             <!-- Mariposas (z-index: 3, encima de todo, opacidad alta, solo después de portada) -->
          
-          
+           <!-- Music Player -->
+        <div class="music-text">Dale play a la canción</div>
+        <div class="music-player">
+            <button class="prev-btn">⏮</button>
+            <button class="play-btn" id="playPauseBtn">▶</button>
+            <button class="next-btn">⏭</button>
+            <div class="progress-bar"><div class="progress" id="progressBar"></div></div>
+        </div>
+  
 
             <div class="hero-photo-container">
                 <div class="hero-photo-slot">
@@ -778,6 +906,32 @@
             </div>
         </section>
 
+        <!-- Sección: Fotos Estilo Álbum (Sin estrellas en código) -->
+<section class="album-section" style="padding: 4rem 1rem; background: #ffffff; text-align: center;">
+    
+    
+
+    <div class="album-container">
+        
+        <!-- FOTO SUPERIOR -->
+        <div class="photo-card card-top">
+            <!-- Tu imagen con marco rosa y estrellas integradas va aquí -->
+            <img src="prueba seccion fotos aparte.png" alt="Foto con ositos" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+            
+            <!-- Etiqueta decorativa (opcional, si quieres que salga la etiquetita blanca al lado) -->
+            <div class="tag-decoration"></div>
+        </div>
+
+        <!-- FOTO INFERIOR -->
+        <div class="photo-card card-bottom">
+            <!-- Tu segunda imagen -->
+            <img src="prueba seccion fotos aparte.png" alt="Foto con ositos" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+        </div>
+
+    </div>
+</section>
+
+
         <!-- ============ UBICACIÓN ============ -->
         <section class="section alt">
             <div class="frame-line"></div>
@@ -813,6 +967,15 @@
                 <a href="https://maps.app.goo.gl/HH94zNzAMZpXEeAR7" target="_blank" class="location-button">Ver en Google Maps</a>
             </div>
         </section>
+
+        
+<!-- Sección: Galería Cine (Sin marco cuadrado) -->
+<section class="film-section">
+    <div class="film-wrapper">
+        <!-- Aquí va tu imagen del film strip -->
+        <img src="film transparente.png" alt="Mis recuerdos" class="film-img">
+    </div>
+</section>
 
         <!-- ============ LLUVIA DE SOBRES ============ -->
         <section class="section">
@@ -931,30 +1094,45 @@ document.querySelectorAll('.section').forEach(section => {
     sectionObserver.observe(section);
 });
 
-// ── Autoplay música al entrar a la página ──
-const music = document.getElementById('bg-music');
-let musicStarted = false;
+// ── Music ──
+const audio = document.getElementById('bgAudio');
+const playBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
 
-function startMusic() {
-    if (!musicStarted && music) {
-        music.volume = 0.5;
-        music.play().then(() => {
-            musicStarted = true;
-            console.log('Música iniciada automáticamente');
-        }).catch(err => {
-            console.log('Autoplay bloqueado por el navegador. Esperando interacción del usuario:', err);
-        });
-    }
+function tryAutoplay() {
+    audio.volume = 0.7;
+    audio.play().then(() => {
+        playBtn.textContent = '⏸';
+    }).catch(() => {
+        playBtn.textContent = '▶';
+    });
 }
+document.addEventListener('click', function handler() {
+    tryAutoplay();
+    document.removeEventListener('click', handler);
+}, { once: true });
+window.addEventListener('load', () => setTimeout(tryAutoplay, 800));
 
-// Intentar iniciar música al cargar la página
-window.addEventListener('load', () => {
-    startMusic();
+playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play().then(() => {
+            playBtn.textContent = '⏸';
+        }).catch((err) => {
+            console.log('No se pudo reproducir audio:', err);
+            playBtn.textContent = '▶';
+        });
+    } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+    }
 });
 
-// Fallback: iniciar música al primer clic/toque si el autoplay fue bloqueado
-document.addEventListener('click', startMusic, { once: true });
-document.addEventListener('touchstart', startMusic, { once: true });
+audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+        progressBar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    }
+});
+
 </script>
 
 </body>
